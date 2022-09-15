@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
-import { CardUpdateDto } from "../cards/card.update.dto";
 import { SubCategoriesService } from "./sub-categories.service";
 import { SubCategory } from "./sub-category.model";
+import {SubCategoryUpdateDto} from "./sub-category.update.dto";
 
 @Controller('sub-categories')
 export class SubCategoriesController {
@@ -19,7 +19,7 @@ export class SubCategoriesController {
 
     @Put(':id')
     async updateSubCategory(
-        @Param('id') id:string ,@Body() updateData:CardUpdateDto
+        @Param('id') id:string ,@Body() updateData:SubCategoryUpdateDto
     ):Promise<SubCategory>{
         return this.subCategoriesService.updateSubCategory(id,updateData)
     }
