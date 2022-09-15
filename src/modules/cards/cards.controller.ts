@@ -13,7 +13,7 @@ export class CardsController {
     }
 
     @Post()
-    async createUser(@Body() cardDto: Card){
+    async createCard(@Body() cardDto: Card){
         return this.cardsService.createCard(cardDto)
     }
 
