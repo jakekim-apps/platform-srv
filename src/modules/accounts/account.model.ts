@@ -1,20 +1,23 @@
 import {Prop, Schema, SchemaFactory} from "@nestjs/mongoose";
 import mongoose, { Document } from 'mongoose';
-export type CardDocument = Card & Document;
+export type AccountDocument = Account & Document;
 
 @Schema({ timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" }})
 
 @Schema()
-export class Card {
+export class Account {
 
     @Prop({ required: true })
     name: string;
 
     @Prop({ required: true })
-    cardNumber: string;
+    accountNumber: string;
 
     @Prop()
     description: string;
+
+    @Prop({ default: 0 })
+    amount: number;
 
     @Prop({ default: new Date(), type: mongoose.Schema.Types.Date })
     createdAt: Date;
@@ -24,4 +27,4 @@ export class Card {
 
 }
 
-export const CardSchema = SchemaFactory.createForClass(Card)
+export const AccountSchema = SchemaFactory.createForClass(Account)
