@@ -9,19 +9,19 @@ export class CardsService {
 
     async createCard(card: Card): Promise<Card> {
         const newCard = new this.cardModel(card);
-        return newCard.save()
+        return newCard.save();
     }
 
-    async getCards(){
+    async getCards() {
         return this.cardModel.find();
     }
 
-    async updateCard(id,data):Promise<Card> {
-        return this.cardModel.findByIdAndUpdate(id,data,{new:true})
+    async updateCard(id, data): Promise<Card> {
+        return this.cardModel.findByIdAndUpdate(id, data,{ new:true });
     }
 
-    async deleteCard(id){
-        return this.cardModel.findByIdAndRemove(id)
+    async deleteCard(id) {
+        return this.cardModel.findByIdAndRemove(id);
     }
 
 }
