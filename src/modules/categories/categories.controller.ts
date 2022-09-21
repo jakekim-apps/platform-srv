@@ -25,6 +25,7 @@ export class CategoriesController {
         return this.categoriesService.updateCategory(id,updateData)
     }
 
+    // TODO remove child all
     @Delete(':id')
     async deleteCategory(@Param('id') id:string){
         return this.categoriesService.deleteCategory(id)

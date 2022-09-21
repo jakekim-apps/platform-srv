@@ -13,7 +13,21 @@ export class SubCategoriesService {
     }
 
     async getSubCategories(){
-        return this.subCategoryModel.find();
+        // return this.subCategoryModel.find();
+        return this.subCategoryModel.aggregate([
+            {
+                $lookup: {
+                    from: 'categories',
+                    localField: "categoryId",
+                    foreignField: "_id",
+                    as: "category"
+                }
+            },
+            {
+                $replaceRoot: { newRoot: { $mergeObjects: [ { $arrayElemAt: [ "$category", 0 ] }, "$$ROOT" ] } }
+            },
+            { $project: { category: 0 } }
+        ]);
     }
 
     async updateSubCategory(id,data):Promise<SubCategory> {

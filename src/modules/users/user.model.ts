@@ -9,7 +9,7 @@ export enum Role {
     GUEST
 }
 
-@Schema({ timestamps: { createdAt: "createdAt", updatedAt: "updatedAt" }})
+@Schema({ timestamps: true})
 
 @Schema()
 export class User {

@@ -7,6 +7,7 @@ import { CategoriesModule } from './modules/categories/categories.module';
 import { SubCategoriesModule } from './modules/sub-categories/sub-categories.module';
 import { UsersModule } from "./modules/users/users.module";
 import { HistoriesModule } from "./modules/histories/histories.module";
+import {AccountsModule} from "./modules/accounts/accounts.module";
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { HistoriesModule } from "./modules/histories/histories.module";
       SubCategoriesModule,
       UsersModule,
       HistoriesModule,
-
+      AccountsModule
   ],
   controllers: [AppController],
   providers: [AppService],
